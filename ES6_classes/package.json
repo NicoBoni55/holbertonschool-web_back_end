@@ -17,6 +17,7 @@
     "jest": "^24.9.0"
   },
   "dependencies": {
-    "package.json": "^2.0.1"
+    "package.json": "^2.0.1",
+    "yargs": "^17.7.2"
   }
 }
