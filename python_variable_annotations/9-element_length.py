@@ -18,5 +18,3 @@ def element_length(
     return: List[Tuple[Sequence, int]]
     """
     return [(i, len(i)) for i in lst]
-
-print(element_length.__annotations__)
