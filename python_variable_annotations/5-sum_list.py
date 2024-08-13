@@ -3,8 +3,10 @@
 function that returns the sum of a list of floats
 """
 
+import typing
 
-def sum_list(input_list: list[float]) -> float:
+
+def sum_list(input_list: typing.List[float]) -> float:
     """
     return the sum of the list of floats
 
