@@ -11,7 +11,5 @@ async def async_comprehension() -> typing.List[float]:
     """
     return list of random numbers between 0 and 10
     """
-    new_list = []
-    async for elements in async_generator():
-        new_list.append(elements)
+    new_list = [num async for num in async_generator()]
     return new_list
