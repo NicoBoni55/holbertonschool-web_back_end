@@ -3,6 +3,7 @@
 function that generates random numbers
 """
 
+import asyncio
 import random
 import typing
 
@@ -13,3 +14,4 @@ async def async_generator() -> typing.AsyncGenerator[float, None]:
     """
     for element in range(10):
         yield random.uniform(0, 10)
+        await asyncio.sleep(1)
