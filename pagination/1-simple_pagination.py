@@ -1,6 +1,15 @@
+#!/usr/bin/env python3
 import csv
 import math
 from typing import List
+
+def index_range(page: int, page_size: int) -> tuple:
+    """
+    return a tuple with two index
+    """
+    start_index = (page - 1) * page_size
+    end_index = page * page_size
+    return (start_index, end_index)
 
 
 class Server:
@@ -30,12 +39,3 @@ class Server:
 
         start, end = index_range(page, page_size)
         return self.dataset()[start:end]
-
-def index_range(page: int, page_size: int) -> tuple:
-    """
-    return a tuple with two index
-    """
-    start_index = (page - 1) * page_size
-    end_index = page * page_size
-    return (start_index, end_index)
-
