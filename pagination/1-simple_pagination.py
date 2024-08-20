@@ -3,6 +3,7 @@ import csv
 import math
 from typing import List
 
+
 def index_range(page: int, page_size: int) -> tuple:
     """
     return a tuple with two index
@@ -32,8 +33,11 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        assert type(page) == int
-        assert type(page_size) == int
+        """
+        return the page with the start and end index
+        """
+        assert isinstance(page, int)
+        assert isinstance(page_size, int)
         assert page > 0
         assert page_size > 0
 
