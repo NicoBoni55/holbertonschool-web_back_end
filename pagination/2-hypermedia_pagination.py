@@ -53,6 +53,9 @@ class Server:
         """
         assert isinstance(page, int)
         assert isinstance(page_size, int)
+        assert page > 0
+        assert page_size > 0
+
         data = self.get_page(page, page_size)
         total_page = math.ceil(len(self.dataset()) / page_size)
         if len(data) == 0:
