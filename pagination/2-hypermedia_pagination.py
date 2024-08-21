@@ -52,13 +52,13 @@ class Server:
         return a dictionary
         """
         data = self.get_page(page, page_size)
-        if page + 1 == 0:
+        if len(data) < page_size:
             next_page = None
         else:
             next_page = page + 1
-        if page - 1 == 0:
+        if page == 1:
             prev_page = None
-        else:
+        else:    
             prev_page = page - 1
         total_page = math.ceil(len(self.dataset()) / page_size)
         dictionary = {
@@ -71,3 +71,13 @@ class Server:
         }
 
         return dictionary
+
+server = Server()
+
+print(server.get_hyper(1, 2))
+print("---")
+print(server.get_hyper(2, 2))
+print("---")
+print(server.get_hyper(100, 3))
+print("---")
+print(server.get_hyper(3000, 100))
