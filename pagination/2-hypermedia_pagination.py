@@ -55,6 +55,7 @@ class Server:
         assert isinstance(page_size, int)
         assert page > 0
         assert page_size > 0
+
         data = self.get_page(page, page_size)
         total_page = math.ceil(len(self.dataset()) / page_size)
         if page < total_page:
@@ -66,7 +67,7 @@ class Server:
         else:
             prev_page = None
 
-        dictionary = {
+        return {
             'page_size': len(data),
             'page': page,
             'data': data,
@@ -74,5 +75,3 @@ class Server:
             'prev_page': prev_page,
             'total_page': total_page
         }
-
-        return dictionary
