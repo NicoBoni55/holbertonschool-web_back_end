@@ -51,6 +51,8 @@ class Server:
         """
         return a dictionary
         """
+        page = int(page)
+        page_size = int(page_size)
         data = self.get_page(page, page_size)
         total_page = math.ceil(len(self.dataset()) / page_size)
         if len(data) == 0:
