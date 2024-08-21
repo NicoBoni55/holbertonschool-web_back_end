@@ -52,6 +52,11 @@ class Server:
         return a dictionary
         """
         data = self.get_page(page, page_size)
+        total_page = math.ceil(len(self.dataset()) / page_size)
+        if len(data) == 0:
+            page_size = 0
+        if len(data) == 0:
+            page_size = 0
         if len(data) < page_size:
             next_page = None
         else:
@@ -60,7 +65,7 @@ class Server:
             prev_page = None
         else:
             prev_page = page - 1
-        total_page = math.ceil(len(self.dataset()) / page_size)
+
         dictionary = {
             'page_size': page_size,
             'page': page,
