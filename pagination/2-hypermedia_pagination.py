@@ -51,26 +51,19 @@ class Server:
         """
         return a dictionary
         """
-        try:
-            isinstance(page, int)
-            isinstance(page_size, int)
-        except TypeError:
-            raise AssertionError
-
         data = self.get_page(page, page_size)
         total_page = math.ceil(len(self.dataset()) / page_size)
-        if len(data) == 0:
-            page_size = 0
-            next_page = None
-        else:
+        if page < total_page:
             next_page = page + 1
-        if page == 1:
-            prev_page = None
         else:
+            next_page = None
+        if page > 1:
             prev_page = page - 1
+        else:
+            prev_page = None
 
         dictionary = {
-            'page_size': page_size,
+            'page_size': len(data),
             'page': page,
             'data': data,
             'next_page': next_page,
