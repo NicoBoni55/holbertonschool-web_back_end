@@ -51,12 +51,11 @@ class Server:
         """
         return a dictionary
         """
-        assert isinstance(page, int) and page > 0
-        assert isinstance(page_size, int) and page_size > 0
+
         data_length = len(self.dataset())
         total_page = math.ceil(data_length / page_size)
         return {
-            'page_size': page_size,
+            'page_size': len(self.get_page(page, page_size)),
             'page': page,
             'data': self.get_page(page, page_size),
             'next_page': page + 1 if page + 1 < total_page else None,
