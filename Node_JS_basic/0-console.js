@@ -2,5 +2,5 @@
 *   funcion that display message in screen
 */
 function displayMessage(STDOUT){
-    console.log(STDOUT);
+    console.log(STD
 }
