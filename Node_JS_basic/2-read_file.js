@@ -3,15 +3,16 @@ const fs = require('fs');
 function countStudents(path) {
   try {
     const data = fs.readFileSync(path, 'utf8');
-    const lines = data.split('\n');
+    const lines = data.split('\n').filter((line) => line.trim() !== '');
     const students = {};
     for (let i = 1; i < lines.length; i += 1) {
       const student = lines[i].split(',');
-      if (student.length > 0) {
-        if (!students[student[3]]) {
-          students[student[3]] = [];
+      if (student.length >= 4) {
+        const field = student[3].trim();
+        if (!students[field]) {
+          students[field] = [];
         }
-        students[student[3]].push(student[0]);
+        students[field].push(student[0].trim());
       }
     }
     console.log(`Number of students: ${lines.length - 1}`);
@@ -26,3 +27,4 @@ function countStudents(path) {
   }
 }
 module.exports = countStudents;
+countStudents("database.csv");
