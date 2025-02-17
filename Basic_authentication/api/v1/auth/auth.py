@@ -13,7 +13,10 @@ class Auth:
         return False
 
     def authorization_header(self, request=None) -> str:
-        return None
+        if request is None:
+            return None
+        else:
+            request.headers.get("Authorization", None)
 
     def current_user(self, request=None) -> TypeVar('User'):
         return None
