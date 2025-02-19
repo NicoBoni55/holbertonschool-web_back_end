@@ -41,7 +41,9 @@ def forbidden_error(error) -> str:
 
 
 @app.before_request
-def before_request():
+def before_request() -> str:
+    """ Before request
+    """
     if auth is None:
         return
     not_part = [
@@ -49,7 +51,6 @@ def before_request():
         '/api/v1/unauthorized/',
         '/api/v1/forbidden/'
     ]
-
     if not auth.require_auth(request.path, not_part):
         return
     if auth.authorization_header(request) is None:
