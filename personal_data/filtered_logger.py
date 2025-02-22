@@ -6,13 +6,11 @@ function filter_datum - that return the log message
 import re
 
 
-def filter_datum(fields, message):
-    
-    x = re.search(fields, message)
+def filter_datum(fields, redaction, message, separator):
+    """ returns the log message obfuscated
+    """
+    for i in fields:
+        message = re.sub(i + "=.*?" + separator,
+                         i + "=" + redaction + separator, message)
 
-    if x:
-        print(f"Encontre:{x.group()}")
-    else:
-        print("No encontre nada")
-
-
+    return message
