@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 
 @app.route("/", methods=['GET'])
-def login():
+def home():
     welcome = {"message": "Bienvenue"}
     return flask.jsonify(welcome)
 
@@ -31,6 +31,16 @@ def create_user():
     except ValueError:
         return jsonify({"message": "email already registered"}), 400
     return jsonify({"email": email, "message": "user created"})
+
+
+@app.route("/sessions", methods=["POST"])
+def login():
+    email = request.form.get("email")
+    password = request.form.get("password")
+    if not AUTH.valid_login(email, password):
+        flask.abort(401)
+    AUTH.create_session(email)
+    return jsonify({"email": {email}, "message": "logged in"})
 
 
 if __name__ == "__main__":
