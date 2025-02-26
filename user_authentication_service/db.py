@@ -62,5 +62,7 @@ class DB:
         if not user:
             raise NoResultFound
         for clave, valor in kwargs.items():
+            if not hasattr(user, clave):
+                raise ValueError
             setattr(user, clave, valor)
         self._session.commit()
