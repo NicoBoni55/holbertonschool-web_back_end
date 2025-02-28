@@ -65,10 +65,8 @@ def profile():
     else:
         abort(403)
 
-@app.route("/reset_password", methods=["POST"])
-def get_reset_password_token() -> str:
-    """ generate password token
-    """
+@app.route('/reset_password', methods=['POST'])
+def get_reset_password_token():
     try:
         email = request.form.get("email")
     except KeyError:
