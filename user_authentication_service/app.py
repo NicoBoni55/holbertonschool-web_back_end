@@ -57,13 +57,11 @@ def log_out():
 
 
 @app.route("/profile", methods=["GET"])
-def profile() -> str:
-    """ response to get profile
-    """
+def profile():
     session_id = request.cookies.get("session_id")
     user = AUTH.get_user_from_session_id(session_id)
     if user:
-        jsonify({"email": user.email}), 200
+        return jsonify({"email": user.email}), 200
     else:
         abort(403)
 
