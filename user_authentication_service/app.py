@@ -65,8 +65,9 @@ def profile():
     else:
         abort(403)
 
-@app.route("/reset_password", methods=["POST"])
+@app.route('/reset_password', methods=['POST'], strict_slashes=False)
 def get_reset_password_token():
+    """ generate a token and respond with a 200 HTTP status """
     try:
         email = request.form.get('email')
         token = AUTH.get_reset_password_token(email)
