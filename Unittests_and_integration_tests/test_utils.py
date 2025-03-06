@@ -60,7 +60,7 @@ class TestMemoize(TestCase):
     """ class to memorization
     """
 
-    def test_memorize(self):
+    def test_memoize(self):
         """ test memorize
         """
         class TestClass:
