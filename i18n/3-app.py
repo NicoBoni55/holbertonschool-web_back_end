@@ -2,7 +2,7 @@
 """ Basic Flask app, Basic Babel setup, Get locale from request,
     Parametrize templates """
 from flask import Flask, render_template, request
-from flask_babel import Babel
+from flask_babel import Babel, _
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -32,6 +32,8 @@ def get_locale():
 
 
 babel.init_app(app, locale_selector=get_locale)
+""" init app with locale_selector
+"""
 
 
 if __name__ == "__main__":
