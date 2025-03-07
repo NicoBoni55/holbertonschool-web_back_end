@@ -4,7 +4,7 @@ Basic app
 """
 
 from flask import Flask, render_template, request
-from flask_babel import Babel, gettext
+from flask_babel import Babel
 
 
 app = Flask(__name__)
