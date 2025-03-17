@@ -4,7 +4,6 @@ Create a chache class
 """
 
 import redis
-from typing import Union
 import uuid
 
 
@@ -17,7 +16,7 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb
 
-    def store(self, data: Union[str, bytes, int, float]):
+    def store(self, data):
         """
         store method
         """
