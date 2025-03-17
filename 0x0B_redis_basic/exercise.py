@@ -8,7 +8,6 @@ from typing import Union
 import uuid
 
 
-
 class Cache:
     """
     class Cache
