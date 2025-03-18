@@ -25,7 +25,7 @@ class Cache():
         self._redis.set(ukey, data)
         return ukey
 
-    def get(self, key: str, fn) -> str:
+    def get(self, key: str, fn=None) -> str:
         """
         get value
         """
@@ -36,14 +36,14 @@ class Cache():
 
         return value
 
-    def get_str(self, key: str, fn) -> str:
+    def get_str(self, key: str, fn=None) -> str:
         """
         get string
         """
         value = self._redis.get(key)
         return value.decode("utf-8")
 
-    def get_int(self, key: str, fn) -> int:
+    def get_int(self, key: str, fn=None) -> int:
         """
         get int
         """
