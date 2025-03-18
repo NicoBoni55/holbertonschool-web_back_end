@@ -4,7 +4,7 @@ Create a chache class
 """
 
 import redis
-from typing import Union
+from typing import Optional, Union
 import uuid
 
 
@@ -24,3 +24,28 @@ class Cache():
         ukey = str(uuid.uuid4())
         self._redis.set(ukey, data)
         return ukey
+
+    def get(self, key: str, fn) -> str:
+        """
+        get value
+        """
+
+        value = self._redis.get(key)
+        if fn:
+            value = fn(value)
+
+        return value
+
+    def get_str(self, key: str, fn) -> str:
+        """
+        get string
+        """
+        value = self._redis.get(key)
+        return value.decode("utf-8")
+
+    def get_int(self, key: str, fn) -> int:
+        """
+        get int
+        """
+        value = self._redis.get(key)
+        return int(value.decode("utf-8"))
