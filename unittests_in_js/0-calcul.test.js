@@ -21,3 +21,10 @@ describe('Calculate Numbers', function(){
         assert.strictEqual(calculateNumber(0, 0), 0)
     })
 });
+
+describe('check args', function(){
+    it('check arg', function(){
+        assert.strictEqual(isNaN(calculateNumber(1)), true);
+        assert.strictEqual(isNaN(calculateNumber()), true);
+    })
+});
