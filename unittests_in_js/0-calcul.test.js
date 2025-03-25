@@ -1,6 +1,5 @@
 const assert = require('assert');
 const calculateNumber = require('./0-calcul');
-const { callbackify } = require('util');
 
 describe('calculateNumber', () => {
     it('checks the output', () => {
