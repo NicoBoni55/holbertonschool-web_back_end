@@ -28,4 +28,17 @@ describe('test route cart/', () => {
             done();
         })
     })
+    it('status and message - with letters', (done) => {
+        const options = {
+            url: "http://localhost:7865/cart/a12",
+            method: "GET",
+        };
+
+        request(options, (error, response, body) => {
+            chai.expect(response.statusCode).to.equal(404);
+            done();
+        })
+    })
+
+    
 })
