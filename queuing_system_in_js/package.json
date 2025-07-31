@@ -7,6 +7,7 @@
         "lint": "./node_modules/.bin/eslint",
         "check-lint": "lint [0-9]*.js",
         "test": "./node_modules/.bin/mocha --require @babel/register --exit",
+        "test:single": "./node_modules/.bin/mocha --require @babel/register --exit",
         "dev": "nodemon --exec babel-node --presets @babel/preset-env"
     },
     "author": "",
@@ -14,7 +15,7 @@
     "dependencies": {
         "chai-http": "^4.3.0",
         "express": "^4.17.1",
-        "kue": "^0.11.1",
+        "kue": "^0.11.6",
         "redis": "^4.7.0"
     },
     "devDependencies": {
@@ -28,7 +29,7 @@
         "eslint-config-airbnb-base": "^14.0.0",
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-jest": "^28.11.0",
-        "mocha": "^11.1.0",
+        "mocha": "^6.2.2",
         "nodemon": "^2.0.22",
         "request": "^2.88.0",
         "sinon": "^7.5.0"
